@@ -56,9 +56,23 @@ class Ui_MainWindow(object):
         dados = cursor.fetchall()
         
         if len(dados) == 0 :
-            print('ACESSO NEGADO')
+            #print('ACESSO NEGADO')
+            from PyQt5.QtWidgets import QMessageBox
+            msg = QMessageBox()
+            msg.setText("ACESSO NEGADO")
+            msg.setWindowTitle("Erro")
+            msg.exec_()
+            
         else:
-            print('ACESSO PERMITIDO')
+            #print('ACESSO PERMITIDO')
+            from menu import Ui_Menu
+            
+            self.tela = QtWidgets.QMainWindow()
+            self.tmenu = Ui_Menu()
+            self.tmenu.setupUi(self.tela)
+            self.tela.show()
+            MainWindow.close() # fecha a tela de login
+            
 
 if __name__ == "__main__":
     import sys
