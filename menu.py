@@ -31,6 +31,9 @@ class Ui_Menu(object):
         self.actionSair.setObjectName("actionSair")
         self.actionUsu_rio_2 = QtWidgets.QAction(Menu)
         self.actionUsu_rio_2.setObjectName("actionUsu_rio_2")
+        
+        self.actionUsu_rio_2.triggered.connect(self.mostrar_sobre)
+        
         self.actionProduto_2 = QtWidgets.QAction(Menu)
         self.actionProduto_2.setObjectName("actionProduto_2")
         
@@ -80,6 +83,15 @@ class Ui_Menu(object):
         self.pesq = Ui_Pesquisar()
         self.pesq.setupUi(self.tela2)
         self.tela2.show()
+    
+    def mostrar_sobre(self):
+        from sobre import Ui_DialogSobre
+        
+        self.tela3 = QtWidgets.QDialog()
+        self.sob = Ui_DialogSobre()
+        self.sob.setupUi(self.tela3)
+        self.tela3.exec_()
+        
         
 
 
